@@ -8,14 +8,10 @@ namespace CMP1903M_A02_2223
 {
     class Test  
     {
-
-<<<<<<< HEAD
         Format format = new Format();  //Creates a new instance of the Format class
         Messages messages = new Messages();  //Creates a new instance of the Welcome class
         Game game = new Game(); //Creates a new instance of the Game class
-=======
-        Format format = new Format();
->>>>>>> parent of ee7f298 (Added some more comments)
+
 
         public void run()
         {
