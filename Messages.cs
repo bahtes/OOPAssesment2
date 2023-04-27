@@ -25,6 +25,11 @@ namespace CMP1903M_A02_2223
         public void instructions()
         {
             Console.WriteLine("Instructions\n");
+            Console.WriteLine("The game will deal two cards from the deck and ask you to perform an operation on the two values");
+            Console.WriteLine("The game will then ask you to enter the answer to the operation");
+            Console.WriteLine("If you get the answer correct you will be awarded a point");
+            Console.WriteLine("If you get the answer incorrect you will be shown the correct answer and your score");
+            Console.WriteLine("All anwsers should be rounded to the nearest whole number\n");
         }
 
         public void questionNum(int i)
@@ -72,6 +77,11 @@ namespace CMP1903M_A02_2223
             Console.WriteLine("What is " + val1 + " " + op + " " + val2 + "?\n");
         }
 
+        public void question(int val1, string op1, int val2, string op2, int val3)
+        {
+            Console.WriteLine("What is " + val1 + " " + op1 + " " + val2 + " " + op2 + " " + val3 + "?\n");
+        }
+
         public void correct()
         {
             Console.WriteLine("Correct!\n");
@@ -87,6 +97,18 @@ namespace CMP1903M_A02_2223
         public void nextLn()
         {
             Console.WriteLine();
+        }
+
+        public void difficulty()
+        {
+            Console.WriteLine("Please enter a difficulty level");
+            Console.WriteLine("1. Easy");
+            Console.WriteLine("2. Hard\n");
+        }
+
+        public void incorrectInput()
+        {
+            Console.WriteLine("Incorrect Input\n");
         }
     }
 

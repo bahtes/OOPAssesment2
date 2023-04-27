@@ -30,7 +30,19 @@ namespace CMP1903M_A02_2223
 
                 if (menuInput == "1")
                 {
-                    game.run();
+                    messages.difficulty();
+                    int difficulty = int.Parse(Console.ReadLine());
+                    if(difficulty != 1 && difficulty != 2)
+                    {
+                        messages.incorrectInput();
+                        messages.nextLn();
+                    }
+                    else
+                    {
+                        messages.nextLn();
+                        game.run(difficulty);
+                        messages.nextLn();
+                    }
                 }
 
                 if (menuInput == "2")
@@ -56,7 +68,7 @@ namespace CMP1903M_A02_2223
 
                 if (menuInput != "1" && menuInput != "2" && menuInput != "3" && menuInput != "4" && menuInput != "5")
                 {
-                    Console.WriteLine("Incorrect input");
+                    messages.incorrectInput();
                 }
             }
 
