@@ -9,67 +9,88 @@ namespace CMP1903M_A02_2223
     class Test  
     {
         Format format = new Format();  //Creates a new instance of the Format class
-        Messages messages = new Messages();  //Creates a new instance of the Welcome class
         Game game = new Game(); //Creates a new instance of the Game class
 
-
-        public void run()
+        public void run()  //Runs the program
         {
             bool playing = true;
 
-            messages.welcome();
+            Messages.welcome();
 
-            while(playing)
+            Messages.enterName();
+
+            string name = Console.ReadLine();  //Gets the name of the player
+
+            while (string.IsNullOrWhiteSpace(name))  //Checks if the name is null or whitespace and asks for a new name if it is
             {
-                format.shuffle(1, true);
+                Messages.noName();
+                name = Console.ReadLine();
+            }
 
-                messages.menu();
+            Messages.nextLn();
+
+            while(playing)  //This loop runs the menu and the game until the user chooses to exit
+            {
+                format.shuffle(1, true);  //Shuffles the pack of cards
+
+                Messages.menu();
 
                 string menuInput = Console.ReadLine();
-                messages.nextLn();
-
-                if (menuInput == "1")
+                Messages.nextLn();
+                
+                switch (menuInput)
                 {
-                    messages.difficulty();
-                    int difficulty = int.Parse(Console.ReadLine());
-                    if(difficulty != 1 && difficulty != 2)
-                    {
-                        messages.incorrectInput();
-                        messages.nextLn();
-                    }
-                    else
-                    {
-                        messages.nextLn();
-                        game.run(difficulty);
-                        messages.nextLn();
-                    }
+                    case "1":
+                        Messages.difficulty();
+                        int difficultyG = int.Parse(Console.ReadLine());
+                        while (difficultyG != 1 && difficultyG != 2)
+                        {
+                            Messages.incorrectInput();
+                            Messages.nextLn();
+                            difficultyG = int.Parse(Console.ReadLine());
+                        }
+                        
+                        FileInfo.setPath(difficultyG);
+                        Messages.nextLn();
+                        game.run(difficultyG, name);
+                        Messages.nextLn();
+                        break;
+
+                    case "2":
+                        Messages.instructions();
+                        break;
+
+                    case "3":
+                        Messages.difficulty();
+                        int difficultyS = int.Parse(Console.ReadLine());
+                        while (difficultyS != 1 && difficultyS != 2)
+                        {
+                            Messages.incorrectInput();
+                            Messages.nextLn();
+                            difficultyS = int.Parse(Console.ReadLine());
+                        }
+                        FileInfo.setPath(difficultyS);
+                        ReadFile.read();
+                        break;
+
+                    case "4":
+                        format.shuffle(1, false);
+                        break;
+
+                    case "5":
+                        format.newPack();
+                        break;
+
+                    case "6":
+                        Messages.goodbye();
+                        playing = false;
+                        break;
+
+                    default:
+                        Messages.incorrectInput();
+                        break;
                 }
 
-                if (menuInput == "2")
-                {
-                    messages.instructions();
-                }
-
-                if (menuInput == "3")
-                {
-                    format.shuffle(1, false);
-                }
-
-                if (menuInput == "4")
-                {
-                    format.newPack();
-                }
-
-                if (menuInput == "5")
-                {
-                    messages.goodbye();
-                    playing = false;
-                }
-
-                if (menuInput != "1" && menuInput != "2" && menuInput != "3" && menuInput != "4" && menuInput != "5")
-                {
-                    messages.incorrectInput();
-                }
             }
 
         }

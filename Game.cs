@@ -2,27 +2,27 @@ namespace CMP1903M_A02_2223
 {
     class Game
     {
-        Format format = new Format();  //Creates a new instance of the Format class
-        Messages messages = new Messages();  //Creates a new instance of the Welcome class
 
-        public void run(int difficulty)
+        Format format = new Format();  //Creates a new instance of the Format class
+
+        public void run(int difficulty, string name)  //Run method
         {
             bool playing = true;
             int i = 0;
 
-            while (playing)
+            while (playing)  //While loop for playing the game
             {
 
-                messages.questionNum(i);
+                Messages.questionNum(i);  //Displays the question number
 
-                string card1 = format.dealOne(); 
+                string card1 = format.dealOne();  //Deals a card
 
-                string[] card1arr = card1.Split(",");
+                string[] card1arr = card1.Split(",");  //Splits the string into an array so that the suit and value can be displayed separately
 
-                messages.suit(1, card1arr[0]);
-                messages.value(1, card1arr[1]);
+                Messages.suit(1, card1arr[0]);  //Displays the suit of the card
+                Messages.value(1, card1arr[1]);  //Displays the value of the card
 
-                switch (card1arr[1])
+                switch (card1arr[1])  //Switch statement for changing the value of the card to an integer
                 {
                     case "Jack":
                         card1arr[1] = "11";
@@ -41,18 +41,18 @@ namespace CMP1903M_A02_2223
                         break;
                 }
 
-                int val1 = Convert.ToInt32(card1arr[1]);
+                int val1 = Convert.ToInt32(card1arr[1]);  //Converts the value of the card to an integer
 
-                messages.val(1, val1);
+                Messages.val(1, val1);  //Displays the value of the card as an integer
 
-                string card2 = format.dealOne(); 
+                string card2 = format.dealOne();  //Deals a card
 
-                string[] card2arr = card2.Split(",");
+                string[] card2arr = card2.Split(",");  //Splits the string into an array so that the suit and value can be displayed separately
 
-                messages.suit(2, card2arr[0]);
-                messages.value(2, card2arr[1]);
+                Messages.suit(2, card2arr[0]);  //Displays the suit of the card
+                Messages.value(2, card2arr[1]);  //Displays the value of the card
 
-                switch (card2arr[0])
+                switch (card2arr[0])  //Switch statement for changing the suit of the card to a mathematical operator
                 {
                     case "Hearts":
                         card2arr[0] = "+";
@@ -71,16 +71,16 @@ namespace CMP1903M_A02_2223
                         break;
                 }
 
-                messages.op(card2arr[0]);
+                Messages.op(card2arr[0]);  //Displays the mathematical operator
 
-                string card3 = format.dealOne(); 
+                string card3 = format.dealOne();   //Deals a card
 
-                string[] card3arr = card3.Split(",");
+                string[] card3arr = card3.Split(",");  //Splits the string into an array so that the suit and value can be displayed separately
 
-                messages.suit(3, card3arr[0]);
-                messages.value(3, card3arr[1]);
+                Messages.suit(3, card3arr[0]);  //Displays the suit of the card
+                Messages.value(3, card3arr[1]);  //Displays the value of the card
 
-                switch (card3arr[1])
+                switch (card3arr[1])  //Switch statement for changing the value of the card to an integer
                 {
                     case "Jack":
                         card3arr[1] = "11";
@@ -99,26 +99,24 @@ namespace CMP1903M_A02_2223
                         break;
                 }
 
-                int val2 = Convert.ToInt32(card3arr[1]);
+                int val2 = Convert.ToInt32(card3arr[1]);  //Converts the value of the card to an integer
 
-                messages.val(2, val2);
+                Messages.val(2, val2);  //Displays the value of the card as an integer
 
-                int val3 = 0;
+                int val3 = 0;  //Initialises val3 so that it can be used later and if the difficulty is set to 1, it will not be used
 
-                string[] card4arr = new string[2];
+                string[] card4arr = new string[2];  //Initialises card4arr so that it can be used later and if the difficulty is set to 1, it will not be used
 
-                Console.WriteLine(card4arr[0]);
-
-                if (difficulty == 2)
+                if (difficulty == 2)  //If statement for if the difficulty is set to 2 so that the game will deal another card and display it
                 {
-                    string card4 = format.dealOne(); 
+                    string card4 = format.dealOne();  //Deals a card
 
-                    card4arr = card4.Split(",");
+                    card4arr = card4.Split(",");  //Splits the string into an array so that the suit and value can be displayed separately
 
-                    messages.suit(4, card4arr[0]);
-                    messages.value(4, card4arr[1]);
+                    Messages.suit(4, card4arr[0]);  //Displays the suit of the card
+                    Messages.value(4, card4arr[1]);  //Displays the value of the card
 
-                    switch (card4arr[0])
+                    switch (card4arr[0])  //Switch statement for changing the suit of the card to a mathematical operator
                     {
                         case "Hearts":
                             card4arr[0] = "+";
@@ -137,16 +135,16 @@ namespace CMP1903M_A02_2223
                             break;
                     }
 
-                    messages.op(card4arr[0]);
+                    Messages.op(card4arr[0]);  //Displays the mathematical operator
 
-                    string card5 = format.dealOne(); 
+                    string card5 = format.dealOne();   //Deals a card
 
-                    string[] card5arr = card5.Split(",");
+                    string[] card5arr = card5.Split(",");  //Splits the string into an array so that the suit and value can be displayed separately
 
-                    messages.suit(5, card5arr[0]);
-                    messages.value(5, card5arr[1]);
+                    Messages.suit(5, card5arr[0]);  //Displays the suit of the card
+                    Messages.value(5, card5arr[1]);  //Displays the value of the card
 
-                    switch (card5arr[1])
+                    switch (card5arr[1])  //Switch statement for changing the value of the card to an integer
                     {
                         case "Jack":
                             card5arr[1] = "11";
@@ -165,28 +163,28 @@ namespace CMP1903M_A02_2223
                             break;
                     }
 
-                    val3 = Convert.ToInt32(card5arr[1]);
+                    val3 = Convert.ToInt32(card5arr[1]);  //Converts the value of the card to an integer
 
-                    messages.val(5, val3);
+                    Messages.val(5, val3);  //Displays the value of the card as an integer
 
-                    messages.question(val1, card2arr[0], val2, card4arr[0], val3);
+                    Messages.question(val1, card2arr[0], val2, card4arr[0], val3);  //Displays the question if the difficulty is set to 2
                 }
                 else
                 {
-                    messages.question(val1, card2arr[0], val2);
+                    Messages.question(val1, card2arr[0], val2);  //Displays the question if the difficulty is set to 1
                 }
 
                 
 
-                int answer = Convert.ToInt32(Console.ReadLine());
+                int answer = Convert.ToInt32(Console.ReadLine());  //Gets the answer from the user
 
-                messages.nextLn();
+                Messages.nextLn();
 
-                int correctAnswer = 0;
+                int correctAnswer = 0;  //Initialises correctAnswer so that it can be used later
 
                 
 
-                switch (card2arr[0])
+                switch (card2arr[0] + card4arr[0])  //Switch statement for calculating the correct answer
                 {
                     case "+":
                         correctAnswer = val1 + val2;
@@ -203,40 +201,85 @@ namespace CMP1903M_A02_2223
                     case "/":
                         correctAnswer = val1 / val2;
                         break;
-                }
 
-                switch (card4arr[0])
-                {
-                    case "+":
-                        correctAnswer = correctAnswer + val3;
+                    case "++":
+                        correctAnswer = val1 + val2 + val3;
+                        break;
+                    
+                    case "+-":  
+                        correctAnswer = val1 + val2 - val3;
                         break;
 
-                    case "-":
-                        correctAnswer = correctAnswer - val3;
+                    case "+*":
+                        correctAnswer = val1 + val2 * val3;
                         break;
 
-                    case "*":
-                        correctAnswer = correctAnswer * val3;
+                    case "+/":
+                        correctAnswer = val1 + val2 / val3;
                         break;
 
-                    case "/":
-                        correctAnswer = correctAnswer / val3;
+                    case "-+":
+                        correctAnswer = val1 - val2 + val3;
+                        break;
+
+                    case "--":  
+                        correctAnswer = val1 - val2 - val3;
+                        break;
+
+                    case "-*":  
+                        correctAnswer = val1 - val2 * val3;
+                        break;  
+
+                    case "-/":
+                        correctAnswer = val1 - val2 / val3;
+                        break;
+
+                    case "*+":
+                        correctAnswer = val1 * val2 + val3;
+                        break;
+
+                    case "*-":
+                        correctAnswer = val1 * val2 - val3;
+                        break;
+
+                    case "**":
+                        correctAnswer = val1 * val2 * val3;
+                        break;
+
+                    case "*/":
+                        correctAnswer = val1 * val2 / val3;
+                        break;
+
+                    case "/+":
+                        correctAnswer = val1 / val2 + val3;
+                        break;
+
+                    case "/-":
+                        correctAnswer = val1 / val2 - val3;
+                        break;
+
+                    case "/*":  
+                        correctAnswer = val1 / val2 * val3;
+                        break;
+
+                    case "//":
+                        correctAnswer = val1 / val2 / val3;
                         break;
                 }
 
                 
-                if (answer == correctAnswer)
+                if (answer == correctAnswer)  //If statement for if the user gets the answer correct it displays a message and increases i by 1 so the score can be displayed at the end
                 {
-                    messages.correct();
+                    Messages.correct();
+                    i++; 
                 }
-                else
+                else  //Else statement for if the user gets the answer incorrect
                 {
-                    messages.incorrect(correctAnswer, i);
+                    Messages.incorrect(correctAnswer);
+                    Messages.score(i);
+                    WriteFile.write(name, i, difficulty);
                     playing = false;
                 }
-
-                i++;
-
             }
         }
     }

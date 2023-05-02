@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_A02_2223
 {
-    class Format  
+    class Format  //Class for formatting the output
     {
 
-        Pack pack = new Pack();
+        Pack pack = new Pack();  //Creates a new instance of the Pack class
 
         public void newPack()  //Creates a new pack
         {
