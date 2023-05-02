@@ -38,9 +38,9 @@ namespace CMP1903M_A02_2223
                 string menuInput = Console.ReadLine();
                 Messages.nextLn();
                 
-                switch (menuInput)
+                switch (menuInput)  //Switch statement for the menu options 
                 {
-                    case "1":
+                    case "1":  //Starts the game and asks for the difficulty
                         Messages.difficulty();
                         int difficultyG = int.Parse(Console.ReadLine());
                         while (difficultyG != 1 && difficultyG != 2)
@@ -56,11 +56,11 @@ namespace CMP1903M_A02_2223
                         Messages.nextLn();
                         break;
 
-                    case "2":
+                    case "2":  //Displays the instructions
                         Messages.instructions();
                         break;
 
-                    case "3":
+                    case "3":  //Shows the scores for the difficulty chosen
                         Messages.difficulty();
                         int difficultyS = int.Parse(Console.ReadLine());
                         while (difficultyS != 1 && difficultyS != 2)
@@ -73,16 +73,21 @@ namespace CMP1903M_A02_2223
                         ReadFile.read();
                         break;
 
-                    case "4":
+                    case "4":  //Shows the tutorial
+                        Messages.tutorial();
+                        break;
+
+                    case "5":  //Shuffles the pack
                         format.shuffle(1, false);
                         break;
 
-                    case "5":
+                    case "6":  //Creates a new pack
                         format.newPack();
                         break;
 
-                    case "6":
+                    case "7":  //Gets the amount of cards left in the pack
                         Messages.goodbye();
+                        System.Threading.Thread.Sleep(3000);
                         playing = false;
                         break;
 

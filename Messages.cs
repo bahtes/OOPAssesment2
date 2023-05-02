@@ -134,6 +134,7 @@ namespace CMP1903M_A02_2223
 
         public static void tutorial()
         {
+            nextLn();
             Console.WriteLine("Welcome to the tutorial\n");
             Console.WriteLine("This tutorial will teach you how to play the game\n");
             Console.WriteLine("This game has 2 modes easy and hard\n");
@@ -149,6 +150,7 @@ namespace CMP1903M_A02_2223
             Console.WriteLine("This is the correct anwser\n");
             Console.WriteLine("All anwsers should be rounded to the nearest whole number\n");
             Console.WriteLine("Now that you know how to play the game you can now play the game\n");
+            nextLn();
         }
 
         public static void noName()

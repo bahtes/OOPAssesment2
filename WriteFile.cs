@@ -5,17 +5,6 @@ namespace CMP1903M_A02_2223
 
         public static void write(string name, int score, int d)
         {
-            string difficulty;  //Variable for the difficulty
-
-            if (d == 1)  //If statement for setting the difficulty
-            {
-                difficulty = "Easy";
-            }
-            if (d == 2)
-            {
-                difficulty = "Hard";
-            }
-
             var list = new List<string>();
 
             string[] lines = {};
