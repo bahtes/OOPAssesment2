@@ -174,9 +174,16 @@ namespace CMP1903M_A02_2223
                     Messages.question(val1, card2arr[0], val2);  //Displays the question if the difficulty is set to 1
                 }
 
-                
+                string answerString = Console.ReadLine();  //Gets the answer from the user
 
-                int answer = Convert.ToInt32(Console.ReadLine());  //Gets the answer from the user
+                while (!CheckIfDigits.check(answerString) || string.IsNullOrWhiteSpace(answerString))  //While loop for checking if the answer is a number
+                {
+                    Messages.nextLn();
+                    Messages.notANumber();  //Displays a message saying that the answer is not a number
+                    answerString = Console.ReadLine();  //Gets the answer from the user
+                }
+
+                int answer = Convert.ToInt32(answerString);  //Gets the answer from the user
 
                 Messages.nextLn();
 
@@ -184,7 +191,7 @@ namespace CMP1903M_A02_2223
 
                 
 
-                switch (card2arr[0] + card4arr[0])  //Switch statement for calculating the correct answer
+                switch (card2arr[0] + card4arr[0])  //Switch statement for calculating the correct answer, C# automatically uses BODMAS so the order of operations is correct
                 {
                     case "+":
                         correctAnswer = val1 + val2;

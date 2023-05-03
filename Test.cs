@@ -42,17 +42,31 @@ namespace CMP1903M_A02_2223
                 {
                     case "1":  //Starts the game and asks for the difficulty
                         Messages.difficulty();
-                        int difficultyG = int.Parse(Console.ReadLine());
-                        while (difficultyG != 1 && difficultyG != 2)
+                        string difficultyGmStr = Console.ReadLine();
+                        while (string.IsNullOrWhiteSpace(difficultyGmStr) || !CheckIfDigits.check(difficultyGmStr))  //Checks if the input is null or whitespace and if it is a number
                         {
                             Messages.incorrectInput();
                             Messages.nextLn();
-                            difficultyG = int.Parse(Console.ReadLine());
+                            difficultyGmStr = Console.ReadLine();
+                        }
+                        int difficultyGm = int.Parse(difficultyGmStr);
+                        while (difficultyGm != 1 && difficultyGm != 2)  //Checks if the input is 1 or 2
+                        {
+                            Messages.incorrectInput();
+                            Messages.nextLn();
+                            difficultyGmStr = Console.ReadLine();
+                            while (string.IsNullOrWhiteSpace(difficultyGmStr) || !CheckIfDigits.check(difficultyGmStr))  //Checks if the input is null or whitespace and if it is a number
+                            {
+                                Messages.incorrectInput();
+                                Messages.nextLn();
+                                difficultyGmStr = Console.ReadLine();
+                            }
+                            difficultyGm = int.Parse(difficultyGmStr);
                         }
                         
-                        FileInfo.setPath(difficultyG);
+                        FileInfo.setPath(difficultyGm);
                         Messages.nextLn();
-                        game.run(difficultyG, name);
+                        game.run(difficultyGm, name);
                         Messages.nextLn();
                         break;
 
@@ -62,14 +76,28 @@ namespace CMP1903M_A02_2223
 
                     case "3":  //Shows the scores for the difficulty chosen
                         Messages.difficulty();
-                        int difficultyS = int.Parse(Console.ReadLine());
-                        while (difficultyS != 1 && difficultyS != 2)
+                        string difficultyScStr = Console.ReadLine();
+                        while (string.IsNullOrWhiteSpace(difficultyScStr)  || !CheckIfDigits.check(difficultyScStr))  //Checks if the input is null or whitespace and if it is a number
                         {
                             Messages.incorrectInput();
                             Messages.nextLn();
-                            difficultyS = int.Parse(Console.ReadLine());
+                            difficultyScStr = Console.ReadLine();
                         }
-                        FileInfo.setPath(difficultyS);
+                        int difficultySc = int.Parse(difficultyScStr);
+                        while (difficultySc != 1 && difficultySc != 2)  //Checks if the input is 1 or 2
+                        {
+                            Messages.incorrectInput();
+                            Messages.nextLn();
+                            difficultyScStr = Console.ReadLine();
+                            while (string.IsNullOrWhiteSpace(difficultyScStr)  || !CheckIfDigits.check(difficultyScStr))  //Checks if the input is null or whitespace and if it is a number
+                            {
+                                Messages.incorrectInput();
+                                Messages.nextLn();
+                                difficultyScStr = Console.ReadLine();
+                            }
+                            difficultySc = int.Parse(difficultyScStr);
+                        }
+                        FileInfo.setPath(difficultySc);
                         ReadFile.read();
                         break;
 

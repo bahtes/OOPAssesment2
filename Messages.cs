@@ -31,7 +31,7 @@ namespace CMP1903M_A02_2223
             Console.WriteLine("The game will then ask you to enter the answer to the operation");
             Console.WriteLine("If you get the answer correct you will be awarded a point");
             Console.WriteLine("If you get the answer incorrect you will be shown the correct answer and your score");
-            Console.WriteLine("All anwsers should be rounded to the nearest whole number\n");
+            Console.WriteLine("All anwsers should be rounded down to the next whole number\n");
         }
 
         public static void questionNum(int i)
@@ -114,7 +114,7 @@ namespace CMP1903M_A02_2223
 
         public static void incorrectInput()
         {
-            Console.WriteLine("Incorrect Input\n");
+            Console.WriteLine("Incorrect Input, try again\n");
         }
 
         public static void enterName()
@@ -148,7 +148,7 @@ namespace CMP1903M_A02_2223
             Console.WriteLine("You would then perform the addition operation as it is the second operation in BODMAS\n");
             Console.WriteLine("This would give you the anwser 14\n");
             Console.WriteLine("This is the correct anwser\n");
-            Console.WriteLine("All anwsers should be rounded down to the nearest whole number\n");
+            Console.WriteLine("All anwsers should be rounded down to the next whole number\n");
             Console.WriteLine("Now that you know how to play the game you can now play the game\n");
             nextLn();
         }
@@ -161,6 +161,11 @@ namespace CMP1903M_A02_2223
         public static void fileNotFound()
         {
             Console.WriteLine("File not found in location, check program folder for EasyScores.txt and HardScores.txt\n");
+        }
+
+        public static void notANumber()
+        {
+            Console.WriteLine("The input was not a number, please try again with only numbers\n");
         }
     }
 }
