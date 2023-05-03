@@ -6,7 +6,7 @@ namespace CMP1903M_A02_2223
         {
             foreach(char a in input)
             {
-                if (!char.IsDigit(a))
+                if (!char.IsDigit(a) && a != '+' && a != '-' && a != '*' && a != '/')
                 {
                     return false;
                 }
